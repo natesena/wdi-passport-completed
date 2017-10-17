@@ -15,12 +15,12 @@ const
 
 // environment port
 const
-	port = process.env.PORT || 3000,
-	mongoConnectionString = process.env.MONGODB_URI || 'mongodb://localhost/passport-authentication'
+	PORT = process.env.PORT || 3000,
+	mongoConnectionString = process.env.MONGODB_URI || 'mongodb://localhost/wdi-passport-completed'
 
 // mongoose connection
 mongoose.connect(mongoConnectionString, (err) => {
-	console.log(err || "Connected to MongoDB (passport-authentication)")
+	console.log(err || "Connected to MongoDB.")
 })
 
 // will store session information as a 'sessions' collection in Mongo
@@ -67,6 +67,6 @@ app.get('/', (req,res) => {
 
 app.use('/', usersRoutes)
 
-app.listen(port, (err) => {
-	console.log(err || "Server running on port " + port)
+app.listen(PORT, (err) => {
+	console.log(err || `Server running on ${PORT}`)
 })
